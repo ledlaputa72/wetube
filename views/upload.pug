@@ -1,0 +1,11 @@
+extends layouts/main
+
+block content
+    .form-container
+        form(action=routes.upload, method="post")
+            label(for="video") Video File
+            input(type="file", id="video", name="video")
+            input(type="text", placeholder="Title", name="Title")
+            input(type="text", placeholder="Description", name="Description")
+            input(type="submit", value="Update Video")
+        

@@ -7,11 +7,11 @@ import {
     getLogin, 
     postLogin,
     logout 
-} from "../constrollers/userController";
+} from "../controllers/userController";
 import { 
     home, 
     search 
-} from "../constrollers/videoController";
+} from "../controllers/videoController";
 
 const globalRouter = express.Router(); 
 

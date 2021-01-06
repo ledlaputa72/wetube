@@ -6,7 +6,7 @@ import {
     userDetail, 
     editProfile, 
     changePassword
-} from "../constrollers/userController";
+} from "../controllers/userController";
 
 const userRouter = express.Router(); 
 

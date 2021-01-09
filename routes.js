@@ -19,7 +19,7 @@ const VIDEO_DETAIL = "/:id"; // :id (변화하는 값으로 인식)
 const EDIT_VIDEO = "/:id/edit"; // ..video/1/edit
 const DELETE_VIDEO = "/:id/delete";
 
-//routes 객체 생성 
+//routes 객체 생성   
 const routes = {
     home: HOME,
     join: JOIN,

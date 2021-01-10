@@ -5,18 +5,25 @@ import {
     getUpload,
     postUpload,
     videoDetail,
-    editVideo, 
+    getEditVideo, 
+    postEditVideo,
     deleteVideo,
 } from "../controllers/videoController";
+import { uploadVideo } from "../middlewares";
 
 const videoRouter = express.Router(); 
 
+
 //함수로 되어있던 부분을 controller에서 상수로 정의하여 불러와 사용
-// videoRouter.get(routes.videos, videos);
+//video upload
 videoRouter.get(routes.upload, getUpload);
-videoRouter.post(routes.upload, postUpload);
+videoRouter.post(routes.upload, uploadVideo, postUpload);
+//video detail
 videoRouter.get(routes.videoDetail(), videoDetail);
-videoRouter.get(routes.editVideo, editVideo);
+//video edit
+videoRouter.get(routes.editVideo(), getEditVideo);
+videoRouter.post(routes.editVideo(), postEditVideo);
+//delete Video
 videoRouter.get(routes.deleteVideo, deleteVideo);
 
 export default videoRouter;

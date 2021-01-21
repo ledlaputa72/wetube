@@ -23,7 +23,10 @@ passport.use(new FacebookStrategy({
     }, facebookLoginCallback)
 );
 
-/* passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser()); */
-passport.serializeUser((user,done) => {done(null,user);});
-passport.deserializeUser((user,done) => {done(null,user);});
+//외부 인증에 문제 있음 
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//업데이트 안됨 
+/* passport.serializeUser((user,done) => {done(null,user);});
+passport.deserializeUser((user,done) => {done(null,user);}); */

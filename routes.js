@@ -28,6 +28,11 @@ const GITHUB_CALLBACK = "/auth/github/callback";
 const FB = "/auth/facebook";
 const FB_CALLBACK = "/auth/facebook/callback"; 
 
+//API
+const API ="/api";
+const REGISTER_VIEW = "/:id/view";
+//위의 API는 어떤 페이지도 랜더링하지 않는다. 해당 현재 페이지의 view 카운트만 올려준다. 
+const ADD_COMMENT = "/:id/comment";
 
 //routes 객체 생성   
 const routes = {
@@ -73,7 +78,10 @@ const routes = {
     githubCallback: GITHUB_CALLBACK,
     me: ME,
     facebook: FB,
-    facebookCallback: FB_CALLBACK
+    facebookCallback: FB_CALLBACK,
+    api : API,
+    registerView : REGISTER_VIEW,
+    addComment : ADD_COMMENT
 };
 
 export default routes;

@@ -53,5 +53,7 @@
     "nodemon": "^2.0.6",
     "postcss": "^8.2.4",
     "prettier": "^2.2.1"
-  }
+  },
+  "repository": "https://github.com/ledlaputa72/wetube.git",
+  "license": "MIT"
 }

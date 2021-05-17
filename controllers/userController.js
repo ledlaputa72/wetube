@@ -98,24 +98,20 @@ export const postFacebookLogin = (req, res ) => {
     res.redirect(routes.home);
 };
 
-export const logout = (req, res) => {
+export const logout = (req,res) => {
     req.logout();
     res.redirect(routes.home);
-  };
+};
 
-export const getMe = async (req, res) => {
-    try {
-      const user = await User.findById(req.user.id).populate("videos");
-      res.render("userDetail", { pageTitle: "User Detail", user });
-    } catch (error) {
-      res.redirect(routes.home);
-    }
-  };
+export const getMe = (req,res) => {
+    res.render("userDetail", { pageTitle :"User Detail", user: req.user});
+};
 
 export const userDetail = async(req,res) => {
     const {params:{id}} = req;
     try {
         const user = await User.findById(id).populate('videos');
+        console.log(user);
         res.render("userDetail", { pageTitle :"User Detail", user});
     } catch (error) {
         res.redirect(routes.home);
@@ -131,17 +127,15 @@ export const postEditProfile = async (req, res) => {
     } = req;
     try {
         await User.findByIdAndUpdate(req.user.id, {
-          name,
-          email,
-          avatarUrl: file ? file.location : req.user.avatarUrl
+            name, 
+            email,
+            avatarUrl: file ? file.path : req.user.avatarUrl
         });
-        req.flash("success", "Profile updated");
         res.redirect(routes.me);
-      } catch (error) {
-        req.flash("error", "Can't update profile");
-        res.redirect(routes.editProfile);
-      }
-    };
+    } catch (error) {
+        res.render(routes.editProfile);
+    }
+};
 
 export const getChangePassword = (req,res) => res.render("changePassword", { pageTitle :"Change Password"});
 
